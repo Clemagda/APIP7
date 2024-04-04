@@ -42,16 +42,16 @@ class F1Score(tf.keras.metrics.Metric):
 print(tf.__version__)
 
 # L'URI du modèle
-directory_path = "G:/MON DRIVE/DOCUMENTS/APPRENTISSAGE/OPENCLASSROOM/PROJET_7_ANALYSE_DE_SENTIMENTS/"
+#directory_path = "APIP7" 
 # model_path = 'G:/Mon Drive/Documents/Apprentissage/OpenClassroom/Projet_7_Analyse_de_sentiments/Models/keras_simple.keras'
-model_path = "G:/Mon Drive/Documents/Apprentissage/OpenClassroom/Projet_7_Analyse_de_sentiments/mlruns/721087437130892755/9da9d53003d14a72b948aa5fe424f5aa/artifacts/model/data/model"
+model_path = "Models/model"
 # Charger le modèle
 
 keras_model = tf.keras.models.load_model(model_path, compile=True)
 keras_model.summary()
 # w2v_model = Word2Vec.load(directory_path+'w2v_model.model')
 w2v_model = KeyedVectors.load_word2vec_format(
-    "G:\Mon Drive\Documents\Apprentissage\OpenClassroom\Projet_7_Analyse_de_sentiments\Models\model.bin.gz", binary=True)
+    "Models/model.bin.gz", binary=True)
 # test tokenization
 tokenizer = tf.keras.preprocessing.text.Tokenizer()
 
