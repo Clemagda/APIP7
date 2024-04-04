@@ -1,4 +1,4 @@
-#!pip install -r requirements.txt
+!pip install -r requirements.txt
 
 # from tensorflow.keras.layers import Embedding, Dense, Flatten, Dropout
 from gensim.models import Word2Vec, FastText, KeyedVectors
