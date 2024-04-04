@@ -3,7 +3,7 @@ import requests
 import os
 
 # Récupérez l'URL de base de l'API à partir des variables d'environnement ou utiliser localhost par défaut
-BASE_URL = os.getenv("API_URL", "http://localhost:8000")
+BASE_URL = os.getenv("API_URL", "https://clemagdabackendp7.streamlit.app/")
 
 st.title('Analyse de Sentiment des Tweets')
 
