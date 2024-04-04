@@ -39,7 +39,7 @@ class F1Score(tf.keras.metrics.Metric):
         self.recall.reset_states()
 
 
-print(tf.__version__)
+
 
 # L'URI du modèle
 #directory_path = "APIP7" 
@@ -49,9 +49,10 @@ model_path = "Models/model"
 
 keras_model = tf.keras.models.load_model(model_path, compile=True)
 keras_model.summary()
+w2v_model = None
 # w2v_model = Word2Vec.load(directory_path+'w2v_model.model')
-w2v_model = KeyedVectors.load_word2vec_format(
-    "Models/model.bin.gz", binary=True)
+#w2v_model = KeyedVectors.load_word2vec_format(
+ #   "Models/model.bin.gz", binary=True)
 # test tokenization
 tokenizer = tf.keras.preprocessing.text.Tokenizer()
 
@@ -109,9 +110,21 @@ class Tweet(BaseModel):
     text: str
 
 
+
+
+
+@app.on_event("startup")
+async def load_model():
+    global w2v_model
+    # Modèle initialisé à None, chargement paresseux
+    # model = your_model_loader_function.load()
+
 @app.post("/predict/")
 async def predict_sentiment(tweet: Tweet):
-
+    global w2v_model
+    if w2v_model is None:
+        w2v_model = KeyedVectors.load_word2vec_format("Models/model.bin.gz", binary=True)
+    
     try:
         preprocessed_text = preprocess_text(tweet.text)
         vectorized_text = vectorize_text(w2v_model, preprocessed_text.split())
