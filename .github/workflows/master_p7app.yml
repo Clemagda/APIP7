@@ -73,7 +73,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          system.debug: true
           app-name: 'p7app'
           slot-name: 'Production'
           
