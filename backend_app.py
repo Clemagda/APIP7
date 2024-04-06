@@ -109,16 +109,16 @@ tracer = trace.get_tracer(__name__)
 class Tweet(BaseModel):
     text: str
 
-
-
-
-
 @app.on_event("startup")
 async def load_model():
     global w2v_model
     # Modèle initialisé à None, chargement paresseux
     # model = your_model_loader_function.load()
 
+@app.get("/")
+async def read_root():
+    return {"message": "Bienvenue sur l'API de prédiction de sentiment. Utilisez le point de terminaison /predict pour analyser le sentiment."}
+    
 @app.post("/predict/")
 async def predict_sentiment(tweet: Tweet):
     global w2v_model
