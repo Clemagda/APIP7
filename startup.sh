@@ -8,4 +8,4 @@ cd /home/site/wwwroot
 pip install -r requirements.txt
 
 # Start Uvicorn with live auto-reload
-uvicorn backend_app:app --host 0.0.0.0 --port 8000 --reload
+uvicorn backend_app:app --host 0.0.0.0 --port 8000 
