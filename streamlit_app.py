@@ -7,7 +7,7 @@ BASE_URL = os.getenv("API_URL", "http://p7app.azurewebsites.net")
 
 st.title('Analyse de Sentiment des Tweets')
 
-tweet_text = st.text_area("Entrez le tweet à analyser:", "Super service!")
+tweet_text = st.text_area("Entrez le tweet à analyser:") #"Super service!"
 
 if st.button('Predict'):
     predict_url = f"{BASE_URL}/predict/"
