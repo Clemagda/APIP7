@@ -3,7 +3,7 @@ import requests
 import os
 
 # Récupérez l'URL de base de l'API à partir des variables d'environnement ou utiliser localhost par défaut
-BASE_URL = os.getenv("API_URL", "https://github.com/Clemagda/APIP7/blob/ece6cc3b9863cb5870ab0526328b6a7e4616a9dc/backend_app.py")
+BASE_URL = os.getenv("API_URL", "p7app.azurewebsites.net")
 
 st.title('Analyse de Sentiment des Tweets')
 
