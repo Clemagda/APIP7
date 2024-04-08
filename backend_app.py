@@ -10,6 +10,7 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+import uvicorn
 import re
 import numpy as np
 
@@ -53,12 +54,8 @@ w2v_model = None
 # w2v_model = Word2Vec.load(directory_path+'w2v_model.model')
 #w2v_model = KeyedVectors.load_word2vec_format(
  #   "Models/model.bin.gz", binary=True)
-# test tokenization
+
 tokenizer = tf.keras.preprocessing.text.Tokenizer()
-
-
-# Création de la variable d'environnement
-APPLICATIONINSIGHTS_CONNECTION_STRING = 'InstrumentationKey=4b8b585c-3050-4865-8542-6dabfe289835;IngestionEndpoint=https://francecentral-1.in.applicationinsights.azure.com/;LiveEndpoint=https://francecentral.livediagnostics.monitor.azure.com/'
 
 
 # Fonctions de prétraitement :
@@ -137,7 +134,10 @@ async def predict_sentiment(tweet: Tweet):
             status_code=500, detail=f"Erreur lors de la prédiction : {str(e)}")
 
     return {"sentiment": sentiment}
-
+    
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))  # Utiliser le port défini par Azure ou, par défaut, 8000
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
 # @app.post("/send_trace/")
 # def send_trace():
