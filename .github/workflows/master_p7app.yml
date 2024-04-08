@@ -5,10 +5,11 @@
 name: Build and deploy Python app to Azure Web App - p7app
 
 on:
+  workflow_dispatch:
   #push:
    # branches:
     #  - master
-  workflow_dispatch:
+  
 
 jobs:
   build:
