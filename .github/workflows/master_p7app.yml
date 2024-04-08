@@ -83,4 +83,4 @@ jobs:
         uses: azure/cli@v1
         with:
           inlineScript: |
-            az webapp config set --resource-group Projet_7 --name p7app --startup-command "gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT"
+            az webapp config set --resource-group Projet_7 --name p7app --startup-command "gunicorn -w 4 -k uvicorn.workers.UvicornWorker backend_app:app --bind 0.0.0.0:$PORT"
