@@ -2,7 +2,7 @@ tensorflow>=2.6.0,<3.0
 fastapi>=0.68.0
 pydantic>=1.8.2
 streamlit>=0.88.0
-scipy  #>=1.11.3
+scipy>=1.13.0 
 requests>=2.26.0
 gensim>=4.3.2
 azure-storage-blob
