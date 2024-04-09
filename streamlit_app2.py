@@ -38,13 +38,13 @@ def vectorize_text(model, text):
         return np.zeros(model.vector_size)
 
 
-model_path = "G:/Mon Drive/Documents/Apprentissage/OpenClassroom/Projet_7_Analyse_de_sentiments/Models/baseline.keras"
+model_path = "Models/model"
 
 keras_model = tf.keras.models.load_model(model_path, compile=True)
 keras_model.summary()
 
 w2v_model = KeyedVectors.load_word2vec_format(
-    "G:/Mon Drive/Documents/Apprentissage/OpenClassroom/Projet_7_Analyse_de_sentiments/Models/model.bin.gz", binary=True)
+    "Models/model.bin.gz", binary=True)
 
 tokenizer = tf.keras.preprocessing.text.Tokenizer()
 
