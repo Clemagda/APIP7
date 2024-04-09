@@ -1,12 +1,11 @@
 #!pip install -r requirements.txt
-
+from gensim.models import Word2Vec, FastText, KeyedVectors
 import streamlit as st
 import requests
 import os
 import tensorflow as tf
 import re
 import numpy as np
-from gensim.models import KeyedVectors
 from opentelemetry import trace
 from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
 from opentelemetry.sdk.trace import TracerProvider
