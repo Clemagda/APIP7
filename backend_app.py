@@ -45,7 +45,8 @@ class F1Score(tf.keras.metrics.Metric):
 # L'URI du modèle
 #directory_path = "APIP7" 
 # model_path = 'G:/Mon Drive/Documents/Apprentissage/OpenClassroom/Projet_7_Analyse_de_sentiments/Models/keras_simple.keras'
-model_path = "Models/baseline.keras"
+#model_path = "Models/baseline.keras"
+model_path = "Models/model
 # Charger le modèle
 
 keras_model = tf.keras.models.load_model(model_path, compile=True)
